@@ -1,0 +1,72 @@
+Code;Oorzaak
+131;Uitloop treinvrije periode
+132;Ongepland werk
+133;Werkzaamheden
+134;Aanrijding (bijna) tijdens werkzaamheden
+141;Bijna aanrijding met wegverkeer
+142;Bijna aanrijding met persoon langs baan
+143;Dieren, schade door of (bijna) aanrijding
+144;Openrijden/kapotrijden
+152;Aanrijding met wegverkeer
+153;Aanrijding met personen langs de baan
+146;Vreemd voorwerp
+250;Belemmerende vegetatie
+154;Diefstal
+145;Vandalisme
+147;Ondeskundig gebruik derden (bediening)
+151;Overig derden
+140;Schade door weg-/werk-/waterverkeer
+150;Vervuiling (derden)
+189;Gladde sporen (bladval/chemicalien)
+181;EMC/bliksem
+182;Extreem hoge temperatuur
+183;Sneeuw/hagel
+184;Storm
+185;Extreem lage temperatuur
+186;IJsafzetting/ijzel
+187;Regen/vocht/wateroverlast
+188;Pekel/zout
+201;Braamvorming
+202;Golfslijtage
+203;Slijtage
+204;Uitwalsing
+205;Groefvorming
+206;Inrijden
+207;Onjuiste geometrie/ligging/blinde vering
+208;Klapper
+209;Verzakking/klink/zetting
+219;Onvoldoende onderhoud
+220;Overbelasting
+221;Overig technisch
+210;RCF (headcheck)
+211;Fabricagefout
+212;Systeemfout
+213;Afstelling onjuist/verlopen
+214;Montagefout
+294;Applicatie/softwarefout
+222;Ingebrand/verbrand
+223;Isolatie
+224;Overspanning
+225;Doorbranden
+226;Corrosie/aantasting
+227;Breuk/scheurvorming/afbrokkeling
+228;Trillingen
+229;Vastgelopen
+230;Veroudering
+231;Verrot
+233;Katterug
+234;Lekkage
+235;Verbogen/vervormd
+239;Omhoog werken/verschuiven
+240;Kortsluiten
+241;Vervuiling (technisch)
+242;Onvoldoende smering
+215;Onderdeel defect door onbekende oorzaak
+298;Geen onderzoek
+299;Niet gemeld
+218;Bij onderzoek in orde/geen oorzaak gevonden
+148;Brand(alarm), bommelding, gevaar/explosie
+149;Levering nutsbedrijf: elek/gas/water/tel
+130;Defect bijzonder voertuig tijdens transport
+135;Overig processen
+136;In- en uitzetten materieel

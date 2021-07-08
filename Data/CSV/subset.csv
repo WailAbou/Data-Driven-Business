@@ -1,0 +1,11 @@
+meldnummer;oorzaakcode;prioriteit;melddatum;geocode;beschrijving;hersteltijd;hersteltijd_15;hersteltijd_dt;hersteltijd_lr;hersteltijd_knn
+80774347;130;9;2014-07-31 10:28:00;555; test ESB;2;0;0;0;0
+80626718;298;9;2011-07-31 11:43:00;666; Mtna : E-boog AC-trip aangesproken, geen treinverkeer. I.o.m. SMC Rtd weer ingeschakeld.;1;0;0;0;0
+80878866;221;9;2017-01-31 10:43:25;564;Gvc : Inttel geeft fout melding.;186;180;0;0;0
+80704628;221;9;2013-01-31 09:20:00;114; Wspl : RH60 gelijkrichter defect, er staa een noodvoeding. Siemens stuurt fabrikant aan. Storingsnummer Siemens 472173133;59;45;45;0;0
+80651548;221;9;2012-01-31 01:52:00;76; Bv-Utg : sp BA t.o.b.s. gemaakt tijdens werkzaamheden rn 647455 door Lwb Karel Marrisen 06 50225077;155;150;0;0;15
+80589105;298;9;2010-11-30 14:32:00;152; A 15 : Spanning weg geslagen door Tr.nr. 47752. 13:16 Zvn en 13:26 Tiel.;3;0;0;0;0
+80589061;298;9;2010-11-30 11:41:00;950; BR : RVO t.b.v. storingen aan wisselverwarmingen op de hele Betuweroute. RVO op verzoek Cor v.Zundert, Keyrail, 06-12571745.;210;195;0;0;0
+80630606;299;9;2011-08-30 13:34:00;539; Rtd Dhs : Ultrasoon meting n.a.v. schouw thv km 80.7. Sp.DE. Meting voor 15:00 uur.Uitvoerder is op de hoogte.;1;0;0;0;0
+80617867;299;9;2011-05-30 15:16:00;112; Dt-Sdm : Trein 5057 heeft spanning van bvl weggetrokken groep 353 trein heeft hierdoor vertraging veroorzaakt;1;0;0;0;0
+80911179;218;9;2018-04-30 08:32:05;531;UT : Wpk 13-256 en 11-257  hele trage systemen;49;45;45;0;0
