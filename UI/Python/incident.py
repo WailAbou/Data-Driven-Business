@@ -1,7 +1,7 @@
 import random
 
 
-properties = ['oorzaakcode', 'hersteltijd', 'prioriteit', 'melddatum', 'geocode', 'beschrijving']
+properties = ['oorzaakcode', 'hersteltijd', 'prioriteit', 'melddatum', 'geocode', 'beschrijving', 'hersteltijd_dt', 'hersteltijd_lr', 'hersteltijd_knn']
 
 
 class Incident:
