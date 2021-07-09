@@ -1,5 +1,5 @@
-from incident import Incident, properties
-from helper import get_province, get_cause, load_data
+from incident import Incident
+from helper import columns, get_province, get_cause, load_data, load_model
 from pandas import concat
 from ui import *
 
@@ -8,71 +8,68 @@ incidents = []
 
     
 def bind():
-    ui.minusButton.clicked.connect(delete_incident)
+    ui.minusButton.clicked.connect(remove_incident)
     ui.plusButton.clicked.connect(add_incident)
     ui.saveButton.clicked.connect(save_incident)
     ui.overviewList.itemPressed.connect(select_incident)
 
 
-def refresh():
+def init():
     global incidents
-    incidents = [Incident(df, i) for i in range(len(df))]
+    incidents = [Incident(df, row) for row in range(len(df))]
+    [ui.overviewList.addItem(str(incident)) for incident in incidents]
+
+
+def predict():
+    features = get_incident().features
+    ui.hersteltijd_dt.setText(str(dt_model.predict(features)[0]))
+    ui.hersteltijd_lr.setText(str(lr_model.predict(features)[0]))
+    ui.hersteltijd_knn.setText(str(knn_model.predict(features)[0]))
+
+
+def get_incident():
+    row = ui.overviewList.currentRow()
+    return incidents[row]
+
+
+def update_map():
+    province = get_province(int(get_incident().geocode))
+    ui.mapLabel.setPixmap(QtGui.QPixmap(f"../../Data/Images/{province}.jpg"))
+    ui.mapLabel.update()
+
+
+def update_cause():
+    cause = get_cause(get_incident().oorzaakcode)
+    ui.oorzaakcode.setText(cause)
+    ui.oorzaakcode.update()
+
+
+def remove_incident():
+    incidents.remove(get_incident())
     ui.overviewList.clear()
     [ui.overviewList.addItem(str(incident)) for incident in incidents]
 
 
-
-def insert_row(row_number, dff, row_value):
-    df1 = dff[0:row_number]
-    df2 = dff[row_number:]
-    df1.loc[row_number]=row_value
-    df_result = concat([df1, df2])
-    df_result.index = [*range(df_result.shape[0])]
-    return df_result
-
-
-def delete_incident():
-    global df
-    row = ui.overviewList.currentRow()
-    index = len(df) - 1 if row == -1 else row
-    df = df.drop(index=index)
-    refresh()
-
-
-
 def add_incident():
-    global df
-    row = ui.overviewList.currentRow()
-    index = len(df) - 1 if row == -1 else row
-    df = concat([df.iloc[:index], df.iloc[[index]], df.iloc[index:]]).reset_index(drop=True)
-    df.iloc[index, df.columns.get_loc('meldnummer')] += 1
-    refresh()
+    new_incident = Incident(get_incident().df, 0)
+    new_incident.meldnummer += 1
+    incidents.insert(ui.overviewList.currentRow(), new_incident)
+    ui.overviewList.clear()
+    [ui.overviewList.addItem(str(incident)) for incident in incidents]
 
 
 def save_incident():
-    index = ui.overviewList.currentRow()
-    for prop in properties:
-        ui_text = getattr(ui, prop)
-        try: df.iloc[index, df.columns.get_loc(prop)] = ui_text.toPlainText()
-        except AttributeError: pass
+    get_incident().update_values(ui)
+    update_map()
+    predict()
+    df = concat([incident.df for incident in incidents])
     df.to_csv('../../Data/CSV/subset.csv', sep=';', index=False)
-    refresh()
 
 
-def select_incident(clicked_incident):
-    row = ui.overviewList.currentRow()
-    selected_incident = incidents[row]
-
-    for prop in properties:
-        ui_text = getattr(ui, prop)
-        incident_text = str(getattr(selected_incident, prop))
-        ui_text.setText(incident_text)
-    
-    province = get_province(selected_incident.geocode)
-    ui.mapLabel.setPixmap(QtGui.QPixmap(f"../../Data/Images/{province}.jpg"))
-
-    cause = get_cause(selected_incident.oorzaakcode)
-    ui.oorzaakcode.setText(cause)
+def select_incident(selected_item):
+    get_incident().update_ui(ui)
+    update_map()
+    update_cause()
 
 
 if __name__ == "__main__":
@@ -85,7 +82,8 @@ if __name__ == "__main__":
 
     # binding data
     df = load_data('../../Data/CSV/subset.csv')
-    refresh()
+    dt_model, lr_model, knn_model = load_model('dt'), load_model('lr'), load_model('knn')
+    init()
     bind()
 
     # displaying window and setting exit state
